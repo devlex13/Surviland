@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Disparar : MonoBehaviour {
 
+    public Text textoMunicion;
     public GameObject prefabProyectil;
     public Transform salidaBala;
     public ParticleSystem explosion;
@@ -42,7 +43,6 @@ public class Disparar : MonoBehaviour {
         }
         if (municionDisponible.balas > 0)
         {
-            Debug.Log(municionDisponible.balas);
             if (Input.GetButtonDown("Modo") && auto.automatico == false)
             {
                 auto.automatico = true;
@@ -81,6 +81,7 @@ public class Disparar : MonoBehaviour {
                     anim.Play("RetrocesoApuntandoChetada");
                     audioSource.PlayOneShot(disparo);
                     Destroy(proyectil, 4);
+                    
                 }
                 else
                 {
@@ -138,6 +139,8 @@ public class Disparar : MonoBehaviour {
         {
             explosion.Stop();
         }
+
+        textoMunicion.text = municionDisponible.balas.ToString();
 
     }
 }

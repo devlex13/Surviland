@@ -8,6 +8,7 @@ public class Enemigo : MonoBehaviour {
     Transform player;
     NavMeshAgent nav;
     Animator anim;
+    BoxCollider collider;
     public int vida = 50;
     public int restarVida = 5;
     float aumento;
@@ -20,6 +21,7 @@ public class Enemigo : MonoBehaviour {
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         this.transform.localScale = new Vector3(0f, 0f, 0f);
+        collider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -34,9 +36,8 @@ public class Enemigo : MonoBehaviour {
         if(vida <= 0)
         {
             nav.enabled = false;
-            
-            
-
+            collider.size = new Vector3(3.0f, 1.0f, 2.0f);
+            collider.center = new Vector3(0f, 4.5f, 0f);
         }
         nav.SetDestination(player.position);
     }
