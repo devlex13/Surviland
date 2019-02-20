@@ -58,6 +58,7 @@
      <Compile Include="Assets\_GameObjects\Scripts\Disparar.cs" />
      <Compile Include="Assets\_GameObjects\Scripts\Enemigo.cs" />
      <Compile Include="Assets\_GameObjects\Scripts\ExplosionDisparo.cs" />
+     <Compile Include="Assets\_GameObjects\Scripts\GeneradorExtra.cs" />
      <Compile Include="Assets\_GameObjects\Scripts\GeneradorZombies.cs" />
      <Compile Include="Assets\_GameObjects\Scripts\Jugar.cs" />
      <Compile Include="Assets\_GameObjects\Scripts\MainMenu.cs" />

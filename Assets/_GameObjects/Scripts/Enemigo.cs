@@ -12,6 +12,7 @@ public class Enemigo : MonoBehaviour {
     public int vida = 50;
     public int restarVida = 5;
     float aumento;
+    public float velocidadCaida = 1.5f;
 
     // Use this for initialization
     void Start()
@@ -35,11 +36,20 @@ public class Enemigo : MonoBehaviour {
 
         if(vida <= 0)
         {
+            this.transform.Translate(Vector3.down * Time.deltaTime * velocidadCaida);
             nav.enabled = false;
-            collider.size = new Vector3(3.0f, 1.0f, 2.0f);
-            collider.center = new Vector3(0f, 4.5f, 0f);
+            //collider.size = new Vector3(0, 0, 0);
+           // collider.enabled = false;
+            Destroy(this.gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + 1);
+
+            
+            //collider.center = new Vector3(0f, 4.5f, 0f);
         }
-        nav.SetDestination(player.position);
+        else
+        {
+            nav.SetDestination(player.position);
+        }
+        
     }
 
     public void OnTriggerEnter(Collider col)
@@ -47,7 +57,6 @@ public class Enemigo : MonoBehaviour {
         if (col.gameObject.name.Contains("Bala"))
         {
             vida -= restarVida;
-            Debug.Log(vida);
             if (vida <= 0)
             {
                   

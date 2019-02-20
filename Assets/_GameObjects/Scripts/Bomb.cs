@@ -30,7 +30,9 @@ public class Bomb : MonoBehaviour {
                 c.GetComponent<Rigidbody>().AddExplosionForce(
                     explosionForce, transform.position, radius, upwardsModifier);
                 Destroy(c.gameObject);
+                
             }
         }
+        Destroy(this.gameObject);
     }
 }

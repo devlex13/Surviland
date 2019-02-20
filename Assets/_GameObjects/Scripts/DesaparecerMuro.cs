@@ -28,6 +28,7 @@ public class DesaparecerMuro : MonoBehaviour {
         {
             Destroy(muro);
             Destroy(contendor);
+            muroCaido.haCaido = true;
         }
 	}
 }

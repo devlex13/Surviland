@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Disparar : MonoBehaviour {
 
     public Text textoMunicion;
+    public Text textoBombas;
     public GameObject prefabProyectil;
     public Transform salidaBala;
     public ParticleSystem explosion;
@@ -28,6 +29,8 @@ public class Disparar : MonoBehaviour {
         anim = GetComponent<Animator>();
         explosion.Stop();
         contador = 0;
+        textoBombas.text = municionBombas.numeroBombas.ToString();
+        textoMunicion.text = municionDisponible.balas.ToString();
     }
 
     void Update()
@@ -141,6 +144,7 @@ public class Disparar : MonoBehaviour {
         }
 
         textoMunicion.text = municionDisponible.balas.ToString();
+        textoBombas.text = municionBombas.numeroBombas.ToString();
 
     }
 }

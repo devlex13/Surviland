@@ -23,6 +23,11 @@ public class municionBombas
     public static int numeroBombas = 10;
 }
 
+public class muroCaido
+{
+    public static bool haCaido = false;
+}
+
 public class Apuntar : MonoBehaviour {
 
     public GameObject Cadera;
